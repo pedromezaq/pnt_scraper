@@ -2,7 +2,7 @@
 
 La Plataforma Nacional de Transparencia incluye buscadores temáticos que compilan información presentada por sujetos obligados. Sin embargo, no existe una opción para descargar masivamente estos datos.
 
-Como la PNT está protegida con Captcha, que no puede ser evadido por Selenium por si solo, en este script se parte de un explorador web abierto donde el usuario ya pasó manualmente este obstáculo y se encuentra en la página de donde se queiren descargar los datos. Este código está implementado específicamente para descargar los datos de Ejercicio del Presupuesto, pero puede ser modificado para otras secciones de los Buscadores Temáticos.
+Como la PNT está protegida con Captcha, que no puede ser evadido por Selenium por si solo, en este script se parte de un explorador web abierto donde el usuario ya pasó manualmente este obstáculo y se encuentra en la página de donde se quiere descargar los datos. Este código está implementado específicamente para descargar los datos de Ejercicio del Presupuesto, pero puede ser modificado para otras secciones de los Buscadores Temáticos.
 
 Prerequisitos:
   1) Google Chrome
@@ -32,10 +32,11 @@ Instrucciones:
 Algunas recomendaciones:
   - Puede tomar algún tiempo ajustar la ventana de tal forma que el programa no tenga un error. El error más común es que un objeto no es visible para el programa porque está más abajo o más arriba de la ventana visible y no puede hacerle click, fallando. Si esto sucede, se recomienda alejar el zoom al máximo (25%) y reducir el número de filas por página de tal forma que todo el sitio sea visible sin tener que desplazarse.
   - Otro problema común es que la página no carga a tiempo, haciendo que los objetos no sean visibles y caiga en error. Se recomienda modificar los time.sleep() en el archivo scraper.py para alargar los tiempos de espera.
+  - Si el Captcha vence, volver a solucionarlo y moverse a la página donde se quedó y volver a correr el script desde ahí, desplazándose a la página donde cortó el script. Justo por esto se pregunta cual es la página inicial y final, para correr en partes si es necesario. Si el Captcha no funciona aunque se introduzca la solución correcta, cerrar el navegador y volverlo a abrir, a veces detecta que hubo automatización y por eso se niega a aceptar que fue llenado por un humano.
 
 Trabajo futuro:
  - Automatizar los filtros. Esto se planea hacer automatizando la descarga masiva de todos los sujetos obligados disponibles, desde los cuales el usuario podrá guardar un archivo con los sujetos que quiere descargar.
  - Minimizar los errores inesperados. El código es bastante simple y solo introduce tiempos muertos entre instrucciones para esperar a que la página cargue. Sin embargo, es posible introducir tiempos muertos basados hasta que un objeto está disponible.
- - Si el Captcha vence, se recomienda moverse a la página donde se quedó y volver a correr el script desde ahí, desplazándose a la página donde cortó el script. Justo por esto se pregunta cual es la página inicial y final, para correr en partes si es necesario.
+ - Implementar el código para las demás secciones de los Buscadores Temáticos.
 
 # Probado en Fedora 36, con Google Chrome Version 103.0.5060.53 (Official Build) (64-bit).
